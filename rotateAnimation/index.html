@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>animation</title>
+    <script
+  src="http://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box;}
+    html, body, #all { height: 100%;}
+    body { position: relative;}
+    #all { position: absolute; width: 100%; height: 100%; padding-top: 100px; background: rgba(0,0,0,0.7); top: 0; left: 0;}    
+    #all > div:first-child { text-align: center; position: relative; height: 200px;}    
+    #all > div:first-child > span { display: inline-block; width: 100px; position: absolute; -webkit-transform:translate(-50%,-50%); left: 50%; top: 50%;}    
+    #all > div:first-child > span img { width: 100%; }    
+    #all > div:first-child > span:first-child {left: calc(50% - 30px); }    
+    #all > div:first-child > span:first-child > img {  }    
+    #all > div:first-child > span:last-child { left: calc(50% + 30px); }    
+    #all > div:first-child > span:last-child > img {  }    
+    #all > div:nth-child(2) { text-align: center; color: white; }    
+    .allBackground { width: 100%; height: 100%; position: absolute; z-index: 555; top: 0; left: 0;}
+</style>
+
+<body>
+    <div>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima aut veniam autem repellendus, velit quo aperiam repudiandae voluptates. Reiciendis, animi dolore quia odio laudantium molestias odit quae nisi voluptate nostrum.
+    </div>
+    <div id="all">
+        <div>
+            <span><img src="pictures.png" alt=""></span>
+            <span><img src="text.png" alt=""></span>
+        </div>
+        
+        <div>
+            <h2>DRAG&amp;DROP</h2>
+            If you want to upload the file, drag and drop here.
+        </div>
+        
+        <div class="allBackground">&nbsp;</div>
+    </div>
+</body>
+</html>
