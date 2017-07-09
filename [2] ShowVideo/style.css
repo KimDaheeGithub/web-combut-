@@ -1,0 +1,57 @@
+* { padding: 0; margin: 0; box-sizing: border-box; font-size: 0.98em; font-weight: normal;}
+h2 { font-size: 1.5em;  font-weight: bold;}
+.w90 { width: 90%; margin: 0 auto; }
+
+input { display: none;}
+
+#video { width: 100%; height: 380px;  margin: 50px 0;  }
+#video > .videoBackground { height: 100%; overflow: hidden; border: 1px solid #aaa; position: relative;}
+#video > .videoBackground > .cover { width: 50%; height: 100%; position: absolute; top: 0; left: 0; background: #ff9494; text-align: center; line-height: 380px; z-index: 10;color: white;}
+#video > .videoBackground > .cover > span { font-weight: bold; font-size: 3em;}
+#video > .videoBackground > .cover > label { width: 100%; height: 100%; position: absolute; left: 0; top: 0; display: none;}
+#video > .videoBackground > .cover > label#toRight { display: block; }
+#video > .videoBackground > .video { float: left; width: 50%; height: 100%; }
+#video > .videoBackground > .video > video { height: 100%; width: 100%; }
+#video > .videoBackground > .contents { float: right; width: 50%; height: 100%; padding: 2%;}
+#video > .videoBackground > .contents > h2 {margin-bottom: 10px; }
+#video > .videoBackground > .contents > p { }
+
+.cover span:before { content: "SHOW "; }
+
+#showVideo:checked ~ .cover span:before { animation: textRight 2s forwards; }
+#showVideo:checked ~ .cover { animation: coverRight 2s forwards; }
+#showVideo:checked ~ .cover label {display: none; }
+#showVideo:checked ~ .cover #toLeft { display: block; }
+
+#hideVideo:checked ~ .cover span:before { animation: textLeft 2s forwards; }
+#hideVideo:checked ~ .cover { animation: coverLeft 2s forwards; }
+#hideVideo:checked ~ .cover label {display: none; }
+#hideVideo:checked ~ .cover #toRight { display: block; }
+
+@-webkit-keyframes coverRight {
+	0% { background: #ff9494; color: white; left: 0; }
+	30% {background: white; color: #ff9494; left: 0; }
+	75% {background: white; color: #ff9494; left: 50%; }
+	100% {background: #ff9494; color: white; left: 50%;  }
+}
+
+@-webkit-keyframes textRight {
+	0% { content:"SHOW "; }
+	29% { content:"SHOW "; }
+	30% { content:"HIDE "; }
+	100% { content:"HIDE "; }
+}
+
+@-webkit-keyframes coverLeft {
+	0% { background: #ff9494; color: white; left: 50%; }
+	30% {background: white; color: #ff9494; left: 50%; }
+	75% {background: white; color: #ff9494; left: 0; }
+	100% {background: #ff9494; color: white; left: 0;  }
+}
+
+@-webkit-keyframes textLeft {
+	0% { content:"HIDE "; }
+	29% { content:"HIDE "; }
+	30% { content:"SHOW "; }
+	100% { content:"SHOW "; }
+}
