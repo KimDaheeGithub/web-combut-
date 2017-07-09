@@ -1,0 +1,50 @@
+* { margin: 0; padding:  0; box-sizing: border-box;}
+html, body { height: 100%; width: 100%; }
+
+#visual { height: 600px; width: 100%; position: relative;}
+	#visual > input { display: none; }
+
+	#visual > .visualLeft { width: 100%; height: 100%; position: absolute; top: 0; left: 0;}
+		#visual > .visualLeft > div { position: absolute; left: 0; top: 0; width: 50%; height: 100%; display: none;}
+		#visual > .visualLeft > div:nth-child(1) { display: block;}
+
+	#visual > .visualRight { width: 100%; height: 100%; position: absolute; top: 0; left: 0; perspective: 5000px;}
+		#visual > .visualRight > div { position: absolute; right: 0; top: 0; width: 100%; height: 100%; transition: all 1s;}
+		#visual > .visualRight > div:nth-child(1) { z-index: 5; }
+		#visual > .visualRight > div:nth-child(2) { z-index: 4; }
+		#visual > .visualRight > div:nth-child(3) { z-index: 3; }
+			#visual > .visualRight > div > div { position: absolute; right: 0; top: 0; width: 50%; height: 100%;}
+			#visual > .visualRight > div > div.front { transition: all 0s; transition-delay: 0.3s; }
+			#visual > .visualRight > div > div.back { transform: rotateY(180deg); }
+
+	#visual > .visualButton { background: rgba(0,0,0,0.7); position: absolute; top: 0; right: 0; z-index: 100; width: 30px; height: 100%; opacity: 0; transition: all 0.3s;}
+	#visual > .visualButton:hover { opacity: 1; }
+		#visual > .visualButton > div { width: 100%; height: 100%; position: absolute; left: 0; top: 0; display: none;}
+		#visual > .visualButton > div:nth-child(2) { display: block; }
+			#visual > .visualButton > div > span { width: 100%; height: auto; text-align: center; display: block; transform: scale(1,2); font-weight: bold; color: white; position: absolute; top: calc(50% - (42px / 2));}
+			#visual > .visualButton > div > label { position: absolute; width: 100%; height: 100%;}
+
+
+#slide1:checked ~ .visualButton > div { display: none; }
+#slide1:checked ~ .visualButton > div:nth-child(2) { display: block; }
+#slide1:checked ~ .visualLeft > div { display:  none; }
+#slide1:checked ~ .visualLeft > div:nth-child(3) { display: block;}
+#slide1:checked ~ .visualRight > div:nth-child(2) { display: none; }
+#slide1:checked ~ .visualRight > div:nth-child(3) { transform: rotateY(-180deg); z-index: 6; }
+#slide1:checked ~ .visualRight > div:nth-child(3) .front {opacity: 0;}
+
+#slide2:checked ~ .visualButton > div { display: none; }
+#slide2:checked ~ .visualButton > div:nth-child(3) { display: block; }
+#slide2:checked ~ .visualLeft > div { display:  none; }
+#slide2:checked ~ .visualLeft > div:nth-child(1) { display: block;}
+#slide2:checked ~ .visualRight > div:nth-child(3) { display: none; }
+#slide2:checked ~ .visualRight > div:nth-child(1) { transform: rotateY(-180deg); z-index: 6; }
+#slide2:checked ~ .visualRight > div:nth-child(1) .front {opacity: 0;}
+
+#slide3:checked ~ .visualButton > div { display: none; }
+#slide3:checked ~ .visualButton > div:nth-child(1) { display: block; }
+#slide3:checked ~ .visualLeft > div { display:  none; }
+#slide3:checked ~ .visualLeft > div:nth-child(2) { display: block;}
+#slide3:checked ~ .visualRight > div:nth-child(1) { display: none; }
+#slide3:checked ~ .visualRight > div:nth-child(2) { transform: rotateY(-180deg); z-index: 6; }
+#slide3:checked ~ .visualRight > div:nth-child(2) .front { opacity:0; }

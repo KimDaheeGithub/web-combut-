@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Flip Animation</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<section id="visual">
+	<input type="radio" name="slide" id="slide1">
+	<input type="radio" name="slide" id="slide2">
+	<input type="radio" name="slide" id="slide3">
+	
+	<div class="visualLeft">
+		<div style="background:url(img/background.jpg); background-size:200%; background-position:left;">&nbsp;</div>
+		<div style="background:url(img/background2.jpg); background-size:200%; background-position:left;">&nbsp;</div>
+		<div style="background:url(img/background3.jpg); background-size:200%; background-position:left;">&nbsp;</div>
+	</div>
+	
+	<div class="visualRight">
+		<div>
+			<div class="back" style="background:url(img/background2.jpg); background-size:200%; background-position:left;">&nbsp;</div>
+			<div class="front" style="background:url(img/background.jpg); background-size:200%; background-position:right;">&nbsp;</div>
+		</div>
+		<div>
+			<div class="back" style="background:url(img/background3.jpg); background-size:200%; background-position:left;">&nbsp;</div>
+			<div class="front" style="background:url(img/background2.jpg); background-size:200%; background-position:right;">&nbsp;</div>
+		</div>
+		<div>
+			<div class="back" style="background:url(img/background.jpg); background-size:200%; background-position:left;">&nbsp;</div>
+			<div class="front" style="background:url(img/background3.jpg); background-size:200%; background-position:right;">&nbsp;</div>
+		</div>
+	</div>
+	
+	<div class="visualButton">
+		<div><span>&gt;</span><label for="slide1">&nbsp;</label></div>
+		<div><span>&gt;</span><label for="slide2">&nbsp;</label></div>
+		<div><span>&gt;</span><label for="slide3">&nbsp;</label></div>
+	</div>
+</section>
+</body>
+</html>
