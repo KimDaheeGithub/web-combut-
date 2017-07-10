@@ -1,0 +1,59 @@
+* { margin: 0; padding: 0; }
+html, body { height: 100%; width: 100%; }
+
+/*
+css로 패턴 만드는 방법
+
+1. background-color 로 배경색 먼저 채움
+
+2. 경기를 예시로 든다면, 패턴에 채워져야 할 선은 4가지
+    2-1. rgba(255,255,255,0.3) 색 1px의 가로선
+    2-2. rgba(255,255,255,0.3) 색 1px의 세로선
+    2-3. #FFFFFF 색 2px의 가로선
+    2-4. #FFFFFF 색 2px의 세로선
+
+    linear-gradient 사용법을 알아보자.
+    linear-gradient 속성값은 background-image 속성에서 사용할 수 있음
+    값을 다중으로 준다면 다중의 그라데이션을 나타낼 수 있음
+    선을 그라데이션으로 나타내는 방법은 첫번째 값을 선 색으로 주고, 두번째 값을 투명(transparent)로 준다면 선이 그려짐
+    (물론 두가지 모두 같은 색상을 줘도 선이 만들어질거라고 예상...)
+
+    2-1. rgba(255,255,255,0.3) 색 1px의 가로선
+    = linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)
+    가장 첫 값에 각도는 가로선이므로 90도(생략하면 자동 가로선이 됨)
+
+    2-2. rgba(255,255,255,0.3) 색 1px의 세로선
+    = linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px)
+
+    나머지는 생략함... 알아서 써....
+
+3. 선 간격(패턴 간격) 설정하기
+    선 간격은 위에서 background-image에서 준 linear-gradient 의 순서대로 적용됨
+    위에서 만약 background-image 로 2-1, 2-2, 2-3, 2-4의 linear-gradient 를 주었다면
+    준 순서대로 간격을 설정하면 됨(즉 선이 4개면, 주어야 하는 사이즈도 4개)
+
+    2-1. rgba(255,255,255,0.3) 색 1px의 가로선은 20px의 간격
+    background-size: 20px 20px (아마 수평선이라 20px 하나만 줘도 적용되는 듯 하지만 걍 두번 써주자... 그렇게 나와있더라)
+
+    2-2. #FFFFFF 색 2px의 세로선은 100px의 간격
+    콤마로 이어서 써주자
+    100px 100px
+
+경기 ㄱㅅㄲ들.... 나쁜놈들아....
+*/
+
+#pattern {
+    width: 100%;
+    height: 500px;
+    background-color: #999;
+    background-image:
+        linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px),
+        linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px),
+        linear-gradient(90deg, #fff 2px, transparent 2px),
+        linear-gradient(#fff 2px, transparent 2px);
+    background-size:
+        20px 20px,
+        20px 20px,
+        100px 100px,
+        100px 100px;
+}
